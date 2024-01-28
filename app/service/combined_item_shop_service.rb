@@ -1,7 +1,7 @@
 class CombinedItemShopService
 
   def self.conn
-    conn = Faraday.new(url: "https://fortnite-api.com/v2")
+    conn = Faraday.new(url: "https://fortnite-api.com/v2/")
   end
 
   def self.get_url(url)
@@ -10,6 +10,6 @@ class CombinedItemShopService
   end
 
   def self.get_itemshop
-    get_url("/shop/br/combined")
+    get_url("shop/br/combined")
   end
 end

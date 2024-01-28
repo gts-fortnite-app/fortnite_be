@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     namespace :v1 do
       resources :itemshop, only: [:index]
-      get '/item_shop', to: 'item_shop#index'
+      get '/item_shop', to: 'combined_item_shop#index'
     end
   end
 end
