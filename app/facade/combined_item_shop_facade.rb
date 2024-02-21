@@ -1,5 +1,6 @@
 class CombinedItemShopFacade
   def self.custom_itemshop
+    # binding.pry
     items = CombinedItemShopService.get_itemshop
     parse_itemshop(items)
   end
