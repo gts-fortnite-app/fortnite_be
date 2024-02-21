@@ -1,4 +1,4 @@
 class CombinedItemShopSerializer
   include JSONAPI::Serializer
-  attributes :final_price, :name, :bundle_image, :item_images, :type
+  attributes :final_price, :name, :image, :type
 end
