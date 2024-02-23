@@ -9,6 +9,7 @@ RSpec.describe "Combined Item Shop", type: :request do
 
         expect(response).to be_successful
         expect(response.status).to eq(200)
+        expect(result).to be_a(Hash)
     end
   end
 end
