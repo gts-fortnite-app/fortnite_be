@@ -2,7 +2,6 @@ class CombinedItemShop
   attr_reader :final_price, :name, :image, :type, :id, :date, :vbuck_icon
 
   def initialize(item)
-    # require 'pry'; binding.pry
     @date = item[:date]
     @vbuck_icon = item[:vbuckIcon]
     @final_price = item[:finalPrice]
