@@ -6,9 +6,13 @@ class CombinedItemShopFacade
   end
 
   def self.parse_itemshop(items)
+    # binding.pry
+    date = items[:data][:date]
+    vbuck_icon = items[:data][:vbuckIcon]
     featured_items = items[:data][:featured][:entries]
     featured_items.map do |item|
-      CombinedItemShop.new(item)
+      item_with_data_and_icon = item.merge(date: date, vbuckIcon: vbuck_icon)
+      CombinedItemShop.new(item_with_data_and_icon)
     end
   end
 end
