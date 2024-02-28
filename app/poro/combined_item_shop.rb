@@ -7,7 +7,7 @@ class CombinedItemShop
     @final_price = item[:finalPrice]
     @name = item[:items][0][:name]
     @type = item[:items][0][:type]
-    @image = item[:bundle] ? item[:bundle][:image] : item[:items][0][:images][:icon]
+    @image = item[:bundle] ? item[:bundle][:image] : item[:items][0][:images][:icon] || item[:items][0][:images][:featured]
     @id = item[:items][0][:id]
   end
 end
