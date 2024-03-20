@@ -20,3 +20,14 @@ Technologies used:<br>
   <img src="https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white"/>
   <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
 </div>
+
+---
+
+GT's Fortnite Tracker App is built with a Ruby on Rails backend, this application is deployed on Heroku for accessibility. It integrates Fortnite's external API to retrieve real-time data and implements a customized internal API to transmit data to the frontend with Cross-Origin Resource Sharing (CORS) support. The application's backend architecture is designed with a service-oriented approach, employing a service and facade pattern to simplify interactions with external APIs. It also utilizes Plain Old Ruby Objects (POROs) for encapsulating logic, ensuring a separation of concerns. Lastly, a JSON serializer is utilized to format the data dynamically for the frontend and ensuring that only essential information is sent.
+
+<details>
+<summary>The Team</summary>
+
+### ![built with love](http://ForTheBadge.com/images/badges/built-with-love.svg)
+- Gabe Torres [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Gabe-Torres) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabe-torres-74a515269/)
+</details>
