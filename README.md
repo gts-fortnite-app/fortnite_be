@@ -4,7 +4,7 @@
 
 ![pull request](https://img.shields.io/github/issues-pr/gts-fortnite-app/fortnite_be.svg)
 ![pull request closed](https://img.shields.io/github/issues-pr-closed/gts-fortnite-app/fortnite_be.svg)
-[![website down](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)](https://gts-fortnite-tracker-a0d0405c9f2a.herokuapp.com/)
+[![website down](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)](https://fortnite-item-shop-be-ed2ec5543cb7.herokuapp.com/api/v1/item_shop)
 
 ![Made with Ruby on Rails](https://img.shields.io/badge/Made%20with-Ruby%20on%20Rails-%23990000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 ![Made with Ruby](https://img.shields.io/badge/Made%20with-Ruby-%23990000?style=for-the-badge&logo=ruby&logoColor=white)
