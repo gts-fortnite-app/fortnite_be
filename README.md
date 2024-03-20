@@ -43,9 +43,9 @@ GT's Fortnite Tracker App is built with a Ruby on Rails backend, this applicatio
 
 
 ## Important Links
-- [Back-End production site](https://fortnite-item-shop-be-ed2ec5543cb7.herokuapp.com/api/v1/item_shop)
-- [Front-End site](https://gts-fortnite-tracker-a0d0405c9f2a.herokuapp.com/)
-- [Frontend Repo](https://github.com/gts-fortnite-app/fortnite_fe)
+- [Back-End Production Site](https://fortnite-item-shop-be-ed2ec5543cb7.herokuapp.com/api/v1/item_shop)
+- [Front-End Production Site](https://gts-fortnite-tracker-a0d0405c9f2a.herokuapp.com/)
+- [Front-End Repo](https://github.com/gts-fortnite-app/fortnite_fe)
 
 
 ## Getting Started
