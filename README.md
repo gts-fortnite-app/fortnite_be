@@ -31,3 +31,109 @@ GT's Fortnite Tracker App is built with a Ruby on Rails backend, this applicatio
 ### ![built with love](http://ForTheBadge.com/images/badges/built-with-love.svg)
 - Gabe Torres [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Gabe-Torres) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabe-torres-74a515269/)
 </details>
+
+--- 
+
+## Summary 
+- [Important Links](#important-links)
+- [Getting Started](#getting-started)
+- [Routes](#routes)
+- [Test Suite](#test-suite)
+- [API JSON Contract](#api-json-contract)
+
+
+## Important Links
+- [Back-End production site](https://fortnite-item-shop-be-ed2ec5543cb7.herokuapp.com/api/v1/item_shop)
+- [Front-End site](https://gts-fortnite-tracker-a0d0405c9f2a.herokuapp.com/)
+
+
+## Getting Started
+<details>
+<summary>Database Information</summary>
+
+**Schema**
+
+```ruby
+ActiveRecord::Schema[7.0].define(version: 0) do
+  enable_extension "plpgsql"
+end
+```
+
+**Gems**
+```ruby
+ruby "3.2.2"
+gem "rails", "~> 7.0.8"
+gem "rack-cors"
+gem "pg", "~> 1.1"
+gem "puma", "~> 5.0"
+gem 'jsonapi-serializer'
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+
+gem "bootsnap", require: false
+  gem "faraday"
+
+group :development, :test do
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
+  gem "pry"
+  gem "shoulda-matchers"
+end
+
+group :development do
+gem "launchy"
+gem "simplecov"
+end
+```
+
+**Installing**
+ - Fork and clone this repo
+  - Run `bundle install`
+  - Run `rails db:{create,migrate,seed}`
+  - Run `rails s` to start the server
+  - Open your browser and navigate to `localhost:3000`
+</details>
+
+## Routes
+
+| Action | Route |
+| ----------- | ----------- |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+|  | '/' |
+
+## API JSON Contract
+*Description of API endpoints*
+
+> `GET /api/v0/`
+
+*Success Response (200 OK):*
+
+```ruby
+``` 
+---
+
+
+## Test Suite
+ - run `bundle exec rspec` to run the test suite
+
+<details>
+<summary>Happy Path</summary>
+    
+```ruby
+```
+
+</details>
+
+<details>
+<summary>Sad Path</summary>
+
+```ruby
+```
+
+</details>
