@@ -14,6 +14,10 @@ RSpec.describe 'Combined Item Shop', type: :request do
       items = result['data']
 
       items.each do |item|
+        expect(item).to have_key('type')
+        expect(item).to have_key('id')
+        expect(item).to have_key('attributes')
+
         attributes = item['attributes']
         expect(attributes['final_price']).to be_a(Integer)
         expect(attributes).to have_key('final_price')
