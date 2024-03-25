@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :itemshop, only: [:index]
       get '/item_shop', to: 'combined_item_shop#index'
+      resources :stats, only: [:index]
     end
   end
 end
