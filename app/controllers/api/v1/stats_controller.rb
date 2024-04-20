@@ -1,7 +1,7 @@
 class Api::V1::StatsController < ApplicationController
   
   def show
-    if params[:name].blank? || params[:name].empty?
+    if params[:name].blank? || params[:name].empty? 
       raise ArgumentError, 'missing name parameter'
     else
       render json: StatsSerializer.new(StatsFacade.player_stats(params[:name])), status: :ok
