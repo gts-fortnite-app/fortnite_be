@@ -11,4 +11,5 @@ class Api::V1::StatsController < ApplicationController
   rescue StandardError => e
     render json: { status: 500, error: e.message }, status: :internal_server_error
   end
+  # ! I need to come back to this and fix the error handling to handle a 404 error when the player is not found.
 end
