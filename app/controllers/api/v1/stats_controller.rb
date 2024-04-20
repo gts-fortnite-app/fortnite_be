@@ -1,7 +1,7 @@
 class Api::V1::StatsController < ApplicationController
   
   def show
-    if params[:name].blank?
+    if params[:name].blank? || params[:name].empty?
       raise ArgumentError, 'missing name parameter'
     else
       render json: StatsSerializer.new(StatsFacade.player_stats(params[:name])), status: :ok
@@ -11,4 +11,5 @@ class Api::V1::StatsController < ApplicationController
   rescue StandardError => e
     render json: { status: 500, error: e.message }, status: :internal_server_error
   end
+  # ! I need to come back to this and fix the error handling to handle a 404 error when the player is not found.
 end
