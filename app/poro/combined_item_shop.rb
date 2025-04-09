@@ -5,9 +5,26 @@ class CombinedItemShop
     @date = item[:date]
     @vbuck_icon = item[:vbuckIcon]
     @final_price = item[:finalPrice]
-    @name = item[:items][0][:name]
+    @name = grab_name(item)
+    @image = grab_image(item)
     # @type = item[:items][0][:type]
-    @image = item[:bundle] ? item[:bundle][:image] : item[:items][0][:images][:icon] || item[:items][0][:images][:featured]
-    @id = item[:items][0][:id]
+    @id = item[:layout][:id]
   end
 end
+
+
+private
+
+  def grab_name(item)
+    item[:brItems]&.first&.dig(:name) ||
+      item[:tracks]&.first&.dig(:title) ||
+      item[:instruments]&.first&.dig(:name) ||
+      item[:bundle]&.dig(:name)
+  end
+
+  def grab_image(item)
+    item[:brItems]&.first&.dig(:images, :featured) ||
+      item[:tracks]&.first&.dig(:albumArt) ||
+      item[:instruments]&.first&.dig(:images, :large) ||
+      item[:bundle]&.dig(:image)
+  end
