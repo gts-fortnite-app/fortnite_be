@@ -10,6 +10,6 @@ class CombinedItemShopService
   end
 
   def self.get_itemshop
-    get_url("shop/br/combined")
+    get_url("shop")
   end
 end
