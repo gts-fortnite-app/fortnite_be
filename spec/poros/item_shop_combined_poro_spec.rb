@@ -7,17 +7,16 @@ RSpec.describe 'Item Shop' do
         date: 'this is a date 324234',
         vbuckIcon: 'supercoolvbuckimage.png',
         finalPrice: 3000,
-        items: [
+        brItems: [
           {
             name: 'Chromatica Armor Gaga',
             images: {
-              icon: "supercoolicon"
-            },
-            id: 'this is a id'
+              featured: "supercoolimageofladygagainfortnite"
+            }
           }
         ],
-        bundle: {
-          image: 'supercoolimageofladygagainfortnite'
+        layout: {
+          id: 'this is a id'
         }
       }
 

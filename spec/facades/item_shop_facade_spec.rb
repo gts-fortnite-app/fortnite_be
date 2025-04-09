@@ -4,6 +4,7 @@ RSpec.describe "Item Shop Facade" do
   context 'instance methods', :vcr do
     scenario '#custom_itemshop' do
     items = CombinedItemShopFacade.custom_itemshop
+    # require 'pry'; binding.pry
 
       items.each do |item|
         expect(item).to respond_to(:final_price).or respond_to(:name)
