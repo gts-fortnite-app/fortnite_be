@@ -23,8 +23,14 @@ private
   end
 
   def grab_image(item)
+    if item 
     item[:brItems]&.first&.dig(:images, :featured) ||
+    item[:brItems]&.first&.dig(:images, :icon) ||
       item[:tracks]&.first&.dig(:albumArt) ||
       item[:instruments]&.first&.dig(:images, :large) ||
-      item[:bundle]&.dig(:image)
+      item[:bundle]&.dig(:image) ||
+      "https://fortnite-api.com/images/banners/foundertier5banner2/icon.png"
+    else 
+      "https://fortnite-api.com/images/banners/foundertier5banner2/icon.png"
+    end
   end
