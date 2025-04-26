@@ -23,7 +23,7 @@ Technologies used:<br>
 
 ---
 
-GT's Fortnite Tracker App is built with a Ruby on Rails backend, this application is deployed on Heroku for accessibility. It integrates Fortnite's external API to retrieve real-time data and implements a customized internal API to transmit data to the frontend with Cross-Origin Resource Sharing (CORS) support. The application's backend architecture is designed with a service-oriented approach, employing a service and facade pattern to simplify interactions with external APIs. It also utilizes Plain Old Ruby Objects (POROs) for encapsulating logic, ensuring a separation of concerns. Lastly, a JSON serializer is utilized to format the data dynamically for the frontend and ensuring that only essential information is sent.
+GT's Fortnite Tracker is built with a Ruby on Rails backend and deployed on Heroku for accessibility. It integrates with Fortnite's external API to retrieve real-time data and implements a custom internal API to send data to the frontend with Cross-Origin Resource Sharing (CORS) support. Users can search players' Epic IDs to retrieve real-time player data, ranging from player level to current season stats. The backend uses Plain Old Ruby Objects (POROs) to encapsulate logic and limit data. The architecture follows a service-oriented approach with service and facade patterns to simplify interactions with Fortnite's external APIs. A JSON serializer formats data for the frontend, sending only essential info. Heroku scheduler runs a script to cache the daily item shop, ensuring only available items are displayed.
 
 <details>
 <summary>The Team</summary>
