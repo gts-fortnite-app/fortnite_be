@@ -86,8 +86,8 @@ group :development, :test do
 end
 
 group :development do
-gem "launchy"
-gem "simplecov"
+  gem "launchy"
+  gem "simplecov"
 end
 ```
 
