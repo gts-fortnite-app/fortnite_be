@@ -71,13 +71,18 @@ gem 'jsonapi-serializer'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "bootsnap", require: false
-  gem "faraday"
+gem "faraday"
+gem 'redis'
+gem 'redis-rails'
+gem 'whenever', require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "pry"
   gem "shoulda-matchers"
+  gem "vcr"
+  gem "webmock"
 end
 
 group :development do
