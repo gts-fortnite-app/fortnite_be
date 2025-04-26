@@ -93,3 +93,218 @@ end
   - Run `rails s` to start the server
   - Open your browser and navigate to `localhost:3000`
 </details>
+
+
+## API JSON Contract
+*Description of API endpoints for front end application*
+
+<u> Item Shop </u>
+- Description of endpoints
+
+> `GET /api/v1/item_shop`
+
+*Success Response (200 OK):*
+
+- Status: 200 OK
+- Description: Successful response with a list of items.
+- Data Format: An array of collection objects, each containing "id", "type", and "attributes".
+<!-- - Location:  -->
+```ruby
+{
+    "data": [
+        {
+            "id": "D4VDLocker",
+            "type": "combined_item_shop",
+            "attributes": {
+                "final_price": 3000,
+                "name": "Camille",
+                "image": "https://fortnite-api.com/images/cosmetics/br/character_mouse/featured.png",
+                "date": "2025-04-26T00:00:00Z",
+                "vbuck_icon": "https://fortnite-api.com/images/vbuck.png"
+            }
+        },
+        {
+            "id": "MHA",
+            "type": "combined_item_shop",
+            "attributes": {
+                "final_price": 800,
+                "name": "Blackwhip Axe",
+                "image": "https://fortnite-api.com/images/cosmetics/br/pickaxe_emeraldglassgreen/icon.png",
+                "date": "2025-04-26T00:00:00Z",
+                "vbuck_icon": "https://fortnite-api.com/images/vbuck.png"
+            }
+        },
+        {
+            "id": "RickandMorty",
+            "type": "combined_item_shop",
+            "attributes": {
+                "final_price": 1500,
+                "name": "Mr. Meeseeks",
+                "image": "https://fortnite-api.com/images/cosmetics/br/character_geniusblob/featured.png",
+                "date": "2025-04-26T00:00:00Z",
+                "vbuck_icon": "https://fortnite-api.com/images/vbuck.png"
+        }
+        },
+        {
+            "id": "SignatureStyle0426",
+            "type": "combined_item_shop",
+            "attributes": {
+                "final_price": 1100,
+                "name": "Kofi Graves",
+                "image": "https://fortnite-api.com/images/cosmetics/br/character_nefariousjewel/featured.png",
+                "date": "2025-04-26T00:00:00Z",
+                "vbuck_icon": "https://fortnite-api.com/images/vbuck.png"
+        }
+    },
+    ....................................
+            }
+        }
+    ]
+}
+```
+
+
+
+> `GET /api/v1/stats/v2?name=#{:id}`
+
+*Success Response (200 OK):*
+
+- Status: 200 OK
+- Description: Successful response with a return response of the player stats.
+- Data Format: A hash of card objects, each containing "id", "type", and "attributes".
+<!-- - Location:  -->
+```ruby
+{
+    "data": {
+        "id": "050a34f3337c4316893a46467d91317c",
+        "type": "stats",
+        "attributes": {
+            "name": "JaTaaOG",
+            "battle_pass_level": 622,
+            "battle_pass_progress": 35,
+            "overall": {
+            "score": 2811619,
+            "scorePerMin": 29.991,
+            "scorePerMatch": 161.06,
+            "wins": 2336,
+            "top3": 2343,
+            "top5": 1420,
+            "top6": 3380,
+            "top10": 325,
+            "top12": 2432,
+            "top25": 627,
+            "kills": 56508,
+            "killsPerMin": 0.603,
+            "killsPerMatch": 3.237,
+            "deaths": 15121,
+            "kd": 3.737,
+            "matches": 17457,
+            "winRate": 13.381,
+            "minutesPlayed": 93749,
+            "playersOutlived": 534662,
+            "lastModified": "2025-04-26T22:46:20Z"
+        },
+            "solo": {
+            "score": 112169,
+            "scorePerMin": 27.601,
+            "scorePerMatch": 63.301,
+            "wins": 67,
+            "top10": 325,
+            "top25": 627,
+            "kills": 3331,
+            "killsPerMin": 0.82,
+            "killsPerMatch": 1.88,
+            "deaths": 1705,
+            "kd": 1.954,
+            "matches": 1772,
+            "winRate": 3.781,
+            "minutesPlayed": 4064,
+            "playersOutlived": 28374,
+            "lastModified": "2025-04-03T23:30:59Z"
+    },
+        ...................
+        }
+    }
+}
+```
+
+<u> Sad Path Error Handling </u>
+
+```ruby
+{
+"status": 400,
+"error": "missing name parameter"
+}
+```
+
+# Routes
+
+| Action | Route |
+| ----------- | ----------- |
+| get | '/api/v1/item_shop' |
+| get | '/api/v1/stats/v2?name=:id' |
+
+# Test Suite
+ - run `bundle exec rspec` to run the test suite
+
+**HappyPath**
+
+```ruby
+RSpec.describe 'Combined Item Shop', type: :request do
+  context '#index' do
+    scenario 'returns fortnite daily item shop info', :vcr do
+      get '/api/v1/item_shop'
+      expect(response).to be_successful
+
+      result = JSON.parse(response.body, symbolize_name: true)
+
+      expect(response.status).to eq(200)
+      expect(result).to be_a(Hash)
+      expect(result).to have_key('data')
+
+      items = result['data']
+
+      items.each do |item|
+        expect(item).to have_key('type')
+        expect(item).to have_key('id')
+        expect(item).to have_key('attributes')
+
+        attributes = item['attributes']
+        expect(attributes['final_price']).to be_a(Integer)
+        expect(attributes).to have_key('final_price')
+        expect(attributes['name']).to be_a(String)
+        expect(attributes).to have_key('name')
+        expect(attributes['image']).to be_a(String)
+        expect(item['attributes']).to have_key('image')
+        expect(attributes['date']).to be_a(String)
+        expect(attributes).to have_key('date')
+        expect(attributes['vbuck_icon']).to be_a(String)
+        expect(attributes).to have_key('vbuck_icon')
+      end
+    end
+  end
+end
+```
+---
+
+**SadPath**
+
+```ruby 
+scenario 'sad path, returns code 404' do 
+      name = ''
+
+      headers = { 'CONTENT_TYPE' => 'application/json' }
+
+      get '/api/v1/stats', headers: headers, params: name
+
+      error_response = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to_not be_successful
+      expect(response.content_type).to match(a_string_including("application/json"))
+      expect(response.status).to eq(400)
+      expect(response).to have_http_status(:bad_request)
+      expect(error_response).to be_a(Hash)
+      expect(error_response).to have_key(:error)
+      expect(error_response[:status]).to eq(400)
+    end
+```
+
